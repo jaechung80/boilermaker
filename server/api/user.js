@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const User = require('../db/user');
 
 // routes mounted on /api/user
 

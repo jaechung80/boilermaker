@@ -4,7 +4,7 @@ const app = express();
 const db = require('./db/database.js');
 const session = require('express-session');
 const passport = require('passport');
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
 
 // configure and create our database store
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
