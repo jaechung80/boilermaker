@@ -1,15 +1,12 @@
-import React from 'react'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store.js';
+import './index.css';
 
-import {Navbar} from './components'
-import Routes from './routes'
-
-const App = () => {
-  return (
-    <div>
-      <Navbar />
-      <Routes />
-    </div>
-  )
-}
-
-export default App
+ReactDOM.render(
+  <Provider store={store}>
+    <div>Test Test Test!</div>
+  </Provider>,
+  document.getElementById('app')
+);

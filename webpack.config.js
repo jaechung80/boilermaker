@@ -1,29 +1,25 @@
-const isDev = process.env.NODE_ENV === 'development'
-
 module.exports = {
-  mode: isDev ? 'development' : 'production',
-  entry: [
-    '@babel/polyfill', // enables async-await
-    './client/index.js'
-  ],
+  entry: './client/app.js',
+  mode: 'development',
   output: {
     path: __dirname,
-    filename: './public/bundle.js'
-  },
-  resolve: {
-    extensions: ['.js', '.jsx']
+    filename: './public/bundle.js',
   },
   devtool: 'source-map',
-  watchOptions: {
-    ignored: /node_modules/
-  },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-      }
-    ]
-  }
-}
+        exclude: /node_modules|bower_components}/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/react', '@babel/preset-env'],
+        },
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+};
