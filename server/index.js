@@ -13,12 +13,6 @@ const dbStore = new SequelizeStore({ db: db });
 // sync so that our session table gets created
 dbStore.sync();
 
-// app.listen(port, () => {
-//   console.log('starting server!');
-//   console.log('look here!');
-//   console.log('hello', `your server is listening on port ${port}!`);
-// });
-
 // logging middleware
 const morgan = require('morgan');
 app.use(morgan('dev'));

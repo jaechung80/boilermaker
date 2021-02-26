@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const User = require('../db/user');
+const User = require('../db/user.js');
+const UserBioData = require('../db/userBioData.js');
 
 // routes mounted on /api/user
 
@@ -21,6 +22,15 @@ router.put('/login', (req, res, next) => {
       }
     })
     .catch(next);
+});
+
+router.post('/update-data', async (req, res, next) => {
+  try {
+    const newData = UserBioData.create(req.body).data;
+    res.send(newData);
+  } catch (err) {
+    next(err);
+  }
 });
 
 router.post('/signup', (req, res, next) => {
